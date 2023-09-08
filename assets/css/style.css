@@ -100,3 +100,11 @@ header {
   outline: none;
   color: white;
 }
+
+.alert-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  color: red;
+}

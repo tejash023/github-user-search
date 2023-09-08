@@ -28,7 +28,6 @@ export const onAlreadyLoggedIn = () => {
       return;
     }
 
-    // Redirect user to homepage
     window.location.href = "./index.html";
   });
 };

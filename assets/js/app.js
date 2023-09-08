@@ -16,7 +16,6 @@ export const renderUserDetails = () => {
   if (!userDetails) {
     return null;
   }
-  const headerUserInfoElem = document.getElementById("user-details");
   const headerUserName = document.getElementById("userName");
   const headerUserPic = document.getElementById("userPic");
 
@@ -48,8 +47,6 @@ export const onLogOutUser = () => {
     });
 };
 
-//Search user
-
 //search input
 const searchUser = document.querySelector("#searchUser");
 
@@ -62,9 +59,10 @@ searchUser.addEventListener("keyup", (e) => {
     //Make HTTPS Call
     getGithubUserInfo(userText).then((data) => {
       console.log(userText, data);
-      if (!data) {
+      if (!data || data.profile.message.includes("API rate limit exceeded")) {
         //Show Alert
-        showAlert("User not found", "alert alert-danger");
+        showAlert("User not found");
+        clearProfile();
       } else {
         //Show profile
         showProfile(data.profile);
@@ -152,20 +150,22 @@ function showRepos(repos) {
 }
 
 //show alert for profile not found
-function showAlert(message, className) {
+function showAlert(message) {
   //clear any remaining alert
-  this.clearAlert();
+  clearAlert();
   //creat div
   const div = document.createElement("div");
 
   //add classes
-  div.className = className;
+  div.className = "alert-message";
 
   //add text
   div.appendChild(document.createTextNode(message));
 
   //get parent
-  const container = document.querySelector(".searchContainer");
+  const container = document.querySelector(".search-card");
+
+  console.log("container", container);
 
   //get search box
   const search = document.querySelector(".search");
@@ -181,7 +181,7 @@ function showAlert(message, className) {
 
 //clear alert message
 function clearAlert() {
-  const currentAlert = document.querySelector(".alert");
+  const currentAlert = document.querySelector(".alert-message");
 
   if (currentAlert) {
     currentAlert.remove();
