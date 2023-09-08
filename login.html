@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Github Finder</title>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="form-elements">
+        <img
+          src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-google-icon-logo-png-transparent-svg-vector-bie-supply-14.png"
+          alt="google-logo"
+        />
+        <button id="signin-btn">Continue with Google</button>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script type="module">
+  import { onLogin, onAlreadyLoggedIn } from "./assets/js/login.js";
+
+  const signInBtnElem = document.getElementById("signin-btn");
+  signInBtnElem.addEventListener("click", onLogin);
+
+  // It will check to login
+  onAlreadyLoggedIn();
+</script>
