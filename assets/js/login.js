@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
-import { FIREBASE_CONFIG } from "../../firebase-config.js";
+import { FIREBASE_CONFIG } from "../../config.js";
 
 import {
   getAuth,

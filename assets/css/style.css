@@ -80,3 +80,23 @@ header {
 
   box-shadow: 1px 1px 1px 1px silver;
 }
+
+/* section {
+  min-height: 100vh;
+  background: black;
+} */
+
+/* .search-card {
+  color: rgba(255, 255, 255, 0.637);
+} */
+
+#searchUser {
+  width: 90%;
+  padding: 13px 13px;
+  font-size: 1rem;
+  border: none;
+  background: #000;
+  border-radius: 5px;
+  outline: none;
+  color: white;
+}
