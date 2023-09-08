@@ -17,20 +17,18 @@ export const renderUserDetails = () => {
     return null;
   }
 
-  const headerUserInfoElem = document.getElementById("user");
+  const headerUserInfoElem = document.getElementById("user-details");
   const headerUserName = document.getElementById("userName");
   const headerUserPic = document.getElementById("userPic");
 
-  headerUserName.innerText = userDetails.displayName;
-
+  headerUserName.innerText = "Hi, " + userDetails.displayName;
   headerUserPic.src = userDetails.photoURL;
-  headerUserPic.style.width = "60px";
-  headerUserPic.style.height = "60px";
-  headerUserPic.style.borderRadius = "50%";
-  headerUserPic.style.objectFit = "cover";
-
-  headerUserInfoElem.style.display = "flex";
-  headerUserInfoElem.style.gap = "12px";
+  // headerUserPic.style.width = "60px";
+  // headerUserPic.style.height = "60px";
+  // headerUserPic.style.borderRadius = "50%";
+  // headerUserPic.style.objectFit = "cover";
+  // headerUserInfoElem.style.display = "flex";
+  // headerUserInfoElem.style.gap = "12px";
 };
 
 export const validateUserDetails = () => {
