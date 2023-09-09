@@ -59,7 +59,7 @@ searchUser.addEventListener("keyup", (e) => {
     //Make HTTPS Call
     getGithubUserInfo(userText).then((data) => {
       console.log(userText, data);
-      if (!data || data.profile.message.includes("API rate limit exceeded")) {
+      if (!data) {
         //Show Alert
         showAlert("User not found");
         clearProfile();
@@ -78,12 +78,19 @@ searchUser.addEventListener("keyup", (e) => {
 
 //fetch Github Details
 async function getGithubUserInfo(user) {
-  const profileResponse = await fetch(
-    `https://api.github.com/users/${user}?client_id=${GITHUB_CONFIG.MY_API_TOKEN}&client_secret=${GITHUB_CONFIG.SECRET_API_KEY}`
-  );
+  const profileResponse = await fetch(`https://api.github.com/users/${user}`, {
+    headers: {
+      Authorization: GITHUB_CONFIG.GITHUB_TOKEN,
+    },
+  });
 
   const reposResponse = await fetch(
-    `https://api.github.com/users/${user}/repos?per_page=5&sort=asc&client_id=${GITHUB_CONFIG.MY_API_TOKEN}&client_secret=${GITHUB_CONFIG.SECRET_API_KEY}`
+    `https://api.github.com/users/${user}/repos?per_page=5&sort=asc&`,
+    {
+      headers: {
+        Authorization: GITHUB_CONFIG.GITHUB_TOKEN,
+      },
+    }
   );
 
   const profile = await profileResponse.json();
@@ -97,24 +104,38 @@ async function getGithubUserInfo(user) {
 
 //Rendering User's Github Info
 function showProfile(user) {
+  console.log(user);
   profile.innerHTML = `
   <div class = "github-card">
     <div class = "user-github-card">
         <div class = "user-github-info">
           <img class = "user-avatar" src = "${user.avatar_url}">
-          <a href = "${user.html_url}" target = "_blank" class = "btn btn-primary" ><i class="fa-brands fa-github"></i> View Profile</a>
+          <h3 class = "user-name">${user.name}</h3>
+          <a href = "${
+            user.html_url
+          }" target = "_blank" class = "btn btn-primary" ><i class="fa-brands fa-github"></i> View Profile</a>
         </div>
         <div class = "user-github-details">
-          <span class = "btn btn-primary"> Public Repos: ${user.public_repos}</span>
-          <span class = "btn btn-warning"> Public Gists: ${user.public_gists}</span>
-          <span class = "btn btn-success"> Followers: ${user.followers}</span>
-          <span class = "btn btn-info"> Following: ${user.following}</span>
-          <br><br>
+          <div class = "user-github-badges">
+            <span class = "btn border"> Public Repos: ${
+              user.public_repos
+            }</span>
+            <span class = "btn border"> Public Gists: ${
+              user.public_gists
+            }</span>
+            <span class = "btn border"> Followers: ${user.followers}</span>
+            <span class = "btn border"> Following: ${user.following}</span>
+          </div>
           <ul class = "list-group">
+          <li class = "list-group-item">${user.bio}</li>
           <li class = "list-group-item">Company: ${user.company}</li>
-          <li class = "list-group-item">Website/Blog: ${user.blog}</li>
           <li class = "list-group-item">Location: ${user.location}</li>
-          <li class = "list-group-item">Member since: ${user.created_at}</li>
+          <li class = "list-group-item">Website/Blog: ${user.blog}</li>
+          
+          <li class = "list-group-item">Member since: ${user.created_at.slice(
+            0,
+            10
+          )}</li>
           </ul>
         </div>
     </div>
