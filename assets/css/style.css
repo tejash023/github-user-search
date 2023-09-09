@@ -2,6 +2,7 @@
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
+  background: black;
 }
 #user {
   display: none;
@@ -87,16 +88,16 @@ header {
   background: black;
 } */
 
-/* .search-card {
+.search-card {
   color: rgba(255, 255, 255, 0.637);
-} */
+}
 
 #searchUser {
   width: 90%;
   padding: 13px 13px;
   font-size: 1rem;
   border: none;
-  background: #000;
+  background: #1b1f23;
   border-radius: 5px;
   outline: none;
   color: white;
@@ -111,7 +112,7 @@ header {
 }
 
 #profile {
-  margin-top: 20px;
+  margin-top: 30px;
   width: 90%;
 }
 
@@ -119,7 +120,6 @@ header {
   display: flex;
   justify-content: flex-start;
   gap: 2rem;
-  align-items: center;
 }
 
 .user-github-info {
@@ -136,6 +136,7 @@ header {
 .user-name {
   margin: 0;
   padding: 10px 0;
+  color: white;
 }
 
 .user-github-badges {
@@ -147,7 +148,7 @@ header {
 .btn {
   color: white;
   text-decoration: none;
-  padding: 8px 5px;
+  padding: 8px 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -171,13 +172,13 @@ header {
 }
 
 .border {
-  border: 2px solid #007bff;
-  color: black;
+  color: white;
   cursor: pointer;
+  background: #007bff;
 }
 
 .border:hover {
-  background: #007bff;
+  background: #034d9c;
   color: white;
 }
 
@@ -187,10 +188,11 @@ header {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-  background: black;
+  background: #1b1f23;
   color: white;
   padding: 15px 10px;
   border-radius: 5px;
+  width: 100%;
 }
 
 #repos {
@@ -202,7 +204,7 @@ header {
 }
 
 .user-github-repo {
-  background: black;
+  background: #1b1f23;
   color: white;
   padding: 8px 10px;
   border-radius: 5px;
@@ -216,9 +218,34 @@ header {
 .user-github-repo-name a {
   text-decoration: none;
   color: wheat;
+  padding: 5px;
 }
 
 .user-github-repo-badge {
-  font-weight: 200;
+  font-weight: 300;
   font-size: 0.9rem;
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 20px;
+}
+
+.badge {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.bg-primary {
+  background: #007bff;
+}
+
+.bg-success {
+  background: #28a745;
+}
+
+.bg-warning {
+  background: #ffc107;
+}
+
+.bg-info {
+  background: #17a2b8;
 }

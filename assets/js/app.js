@@ -159,7 +159,7 @@ function showRepos(repos) {
         <div class = "user-github-repo-badge">
           <span class = "badge bg-primary"> Stars: ${repo.stargazers_count}</span>
           <span class = "badge bg-warning"> Watchers: ${repo.watchers_count}</span>
-          <span class = "badge bg-success"> Forks: ${repo.forms_count}</span>
+          <span class = "badge bg-success"> Forks: ${repo.forks}</span>
         </div>
       </div>
     </div>
