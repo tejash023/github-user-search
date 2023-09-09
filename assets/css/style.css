@@ -53,12 +53,13 @@ section {
 #user-details {
   display: flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 1rem;
+  color: white;
 }
 
 #userPic {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -78,9 +79,9 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 15px;
-  background-color: #fff;
+  background-color: #000;
 
-  box-shadow: 1px 1px 1px 1px silver;
+  box-shadow: 1px 1px 1px 1px #1b1f23;
 }
 
 /* section {
