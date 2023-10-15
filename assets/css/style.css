@@ -200,7 +200,7 @@ header {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -209,6 +209,7 @@ header {
   color: white;
   padding: 8px 10px;
   border-radius: 5px;
+  width: 30%;
 }
 
 .user-github-repo-name {
