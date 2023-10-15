@@ -58,8 +58,8 @@ searchUser.addEventListener("keyup", (e) => {
   if (userText !== "") {
     //Make HTTPS Call
     getGithubUserInfo(userText).then((data) => {
-      console.log(userText, data);
-      if (!data) {
+      console.log(userText, data.profile.message);
+      if (data?.profile?.message === "Not Found") {
         //Show Alert
         showAlert("User not found");
         clearProfile();
@@ -104,7 +104,7 @@ async function getGithubUserInfo(user) {
 
 //Rendering User's Github Info
 function showProfile(user) {
-  console.log(user);
+  //console.log(user);
   profile.innerHTML = `
   <div class = "github-card">
     <div class = "user-github-card">
